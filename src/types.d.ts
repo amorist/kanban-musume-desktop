@@ -1,0 +1,1 @@
+declare var loadlive2d: (selector: string, model: string) => any;
