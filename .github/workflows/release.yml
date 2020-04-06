@@ -17,12 +17,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Install dependencies
+        run: yarn
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          cmd: release # will run `yarn release` command
+        run: yarn release
 
