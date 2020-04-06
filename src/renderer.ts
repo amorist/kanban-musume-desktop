@@ -33,9 +33,6 @@ import $ from "jquery";
 import models from './model';
 import { shell } from 'electron';
 
-let index = 0;
-loadlive2d('live2d', models[index]);
-
 const hideMessage = ((timeout: number): void => {
   $(".kanban-tips")
     .stop()
@@ -77,6 +74,9 @@ const showHitokoto = ((): void => {
     }
   );
 });
+
+let index = 0;
+loadlive2d('live2d', models[index]);
 
 $('.kanban-tool .user').click((): void => {
   if (index < models.length - 1) {

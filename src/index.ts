@@ -47,7 +47,8 @@ const createWindow = (): void => {
     focusable: true,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true,
+      devTools: app.isPackaged ? false : true,
+      nodeIntegration: true
     }
   });
 
