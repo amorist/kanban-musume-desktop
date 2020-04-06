@@ -1,17 +1,22 @@
 # kanban-musume-desktop
-Kanban Musume Desktop 看板娘桌面版
+Kanban Musume Desktop 看板娘桌面版（代码待完善后开源）
 
-# More
+# About
 
-除此之外，还有网页版本：
+[网页版本：stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/live2d-widget)
 
-[stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/live2d-widget)
+[血小板：Platelet](https://github.com/amorist/platelet)
 
 # Credits
+[猫与向日葵](https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-03/)
+
+[Denchi](https://twitter.com/DenchiSoft/status/1036017773011525632)
+
 [stevenjoezhang](https://github.com/stevenjoezhang)
 
 [fghrsh](https://github.com/fghrsh)
 
+...more
 # License
 
 [Released under the GNU General Public License v3](http://www.gnu.org/licenses/gpl-3.0.html)
