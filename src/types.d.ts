@@ -1,1 +1,1 @@
-declare var loadlive2d: (selector: string, model: string) => any;
+declare let loadlive2d: (selector: string, model: string) => void;

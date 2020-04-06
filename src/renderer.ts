@@ -28,7 +28,7 @@
 /// <reference types="./types" />
 import './index.css';
 import './live2d.min.js';
-import takePhoto from'./capture-renderer';
+import takePhoto from './capture-renderer';
 import $ from "jquery";
 import models from './model';
 import { shell } from 'electron';
@@ -36,81 +36,73 @@ import { shell } from 'electron';
 let index = 0;
 loadlive2d('live2d', models[index]);
 
-$('.kanban-tool .eye').click(() => {
-    switchNightMode()
+const hideMessage = ((timeout: number): void => {
+  $(".kanban-tips")
+    .stop()
+    .css("opacity", 1);
+  if (timeout === null) timeout = 5000;
+  window.setTimeout(function () {
+    sessionStorage.removeItem("kanban-text");
+  }, timeout);
+  $(".kanban-tips")
+    .delay(timeout)
+    .fadeTo(200, 0);
 });
 
-$('.kanban-tool .user').click(() => {
-    if (index < models.length - 1) {
-        index += 1;
-    } else {
-        index = 0;
+const showMessage = ((text: string, timeout: number, flag?: boolean): void => {
+  if (
+    flag ||
+    sessionStorage.getItem("kanban-text") === "" ||
+    sessionStorage.getItem("kanban-text") === null
+  ) {
+    if (Array.isArray(text))
+      text = text[Math.floor(Math.random() * text.length + 1) - 1];
+
+    if (flag) sessionStorage.setItem("kanban-text", text);
+
+    $(".kanban-tips").stop();
+    $(".kanban-tips")
+      .html(text)
+      .fadeTo(200, 1);
+    if (timeout === null) timeout = 5000;
+    hideMessage(timeout);
+  }
+});
+
+const showHitokoto = ((): void => {
+  $.getJSON(
+    "https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json",
+    function (result) {
+      showMessage(result.hitokoto, 5000);
     }
-    loadlive2d('live2d', models[index]);
+  );
+});
+
+$('.kanban-tool .user').click((): void => {
+  if (index < models.length - 1) {
+    index += 1;
+  } else {
+    index = 0;
+  }
+  loadlive2d('live2d', models[index]);
 });
 
 $('.kanban-tool .comment').click(() => {
-    showHitokoto()
+  showHitokoto();
 });
 
 $('.kanban-tool .camera').click(async () => {
-  $('.kanban-tool').hide()
+  $('.kanban-tool').hide();
   await takePhoto();
-  $('.kanban-tool').show()
+  $('.kanban-tool').show();
   showMessage("照好了嘛，是不是很可爱呢？", 5000, true);
 });
 
 $('.kanban-tool .camera').click(async () => {
-  shell.openExternal('')
+  shell.openExternal('');
 });
 
-const switchNightMode = (() => {
-    
-})
-
-const showHitokoto = (() => {
-    $.getJSON(
-        "https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json",
-        function (result) {
-            showMessage(result.hitokoto, 5000);
-        }
-    );
-})
-
-const showMessage = ((text: string, timeout: number, flag?: boolean) => {
-    if (
-        flag ||
-        sessionStorage.getItem("kanban-text") === "" ||
-        sessionStorage.getItem("kanban-text") === null
-    ) {
-        if (Array.isArray(text))
-            text = text[Math.floor(Math.random() * text.length + 1) - 1];
-
-        if (flag) sessionStorage.setItem("kanban-text", text);
-
-        $(".kanban-tips").stop();
-        $(".kanban-tips")
-            .html(text)
-            .fadeTo(200, 1);
-        if (timeout === null) timeout = 5000;
-        hideMessage(timeout);
-    }
-})
-
-const hideMessage = ((timeout: number) => {
-    $(".kanban-tips")
-        .stop()
-        .css("opacity", 1);
-    if (timeout === null) timeout = 5000;
-    window.setTimeout(function () {
-        sessionStorage.removeItem("kanban-text");
-    }, timeout);
-    $(".kanban-tips")
-        .delay(timeout)
-        .fadeTo(200, 0);
-})
-
-var now = new Date().getHours();
+const now = new Date().getHours();
 let text: string
 if (now > 23 || now <= 5) {
   text = "你是夜猫子呀？这么晚还不睡觉，明天起的来嘛";
