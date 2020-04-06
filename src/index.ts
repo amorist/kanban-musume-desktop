@@ -1,4 +1,5 @@
-import { app, screen, BrowserWindow } from 'electron';
+import { app, screen, Menu, BrowserWindow } from 'electron';
+import menu from './menu';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 
 // const server = "https://hazel-inky.now.sh/"
@@ -62,7 +63,10 @@ const createWindow = (): void => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  Menu.setApplicationMenu(menu);
+  createWindow();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
