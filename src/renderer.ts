@@ -98,8 +98,8 @@ $('.kanban-tool .camera').click(async () => {
   showMessage("照好了嘛，是不是很可爱呢？", 5000, true);
 });
 
-$('.kanban-tool .camera').click(async () => {
-  shell.openExternal('');
+$('.kanban-tool .info').click(async () => {
+  shell.openExternal('https://github.com/amorist/kanban-musume-desktop');
 });
 
 const now = new Date().getHours();

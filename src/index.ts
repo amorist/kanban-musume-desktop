@@ -1,6 +1,13 @@
 import { app, screen, BrowserWindow } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 
+// const server = "https://hazel-inky.now.sh/"
+// const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+
+// autoUpdater.setFeedURL({
+//   url: feed
+// });
+
 const MAIN_WIDTH = 320;
 const MAIN_HEIGHT = 350;
 
@@ -8,6 +15,20 @@ const MAIN_HEIGHT = 350;
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
 }
+// if (!app.isInApplicationsFolder()) {
+//   app.moveToApplicationsFolder({
+//     conflictHandler: (conflictType) => {
+//       if (conflictType === 'exists' || conflictType === 'existsAndRunning') {
+//         return dialog.showMessageBoxSync({
+//           type: 'question',
+//           buttons: ['取消', '继续'],
+//           defaultId: 0,
+//           message: '这个名字的App已经存在'
+//         }) === 1
+//       }
+//     }
+//   })
+// }
 
 const createWindow = (): void => {
   // Create the browser window.
@@ -59,5 +80,13 @@ app.on('activate', () => {
   }
 });
 
+app.setAboutPanelOptions({
+  copyright: 'copyright 2020',
+  credits: `
+APP内所有模型、图片版权均属于原作者，仅供研究学习，不得用于商业用途\n
+stevenjoezhang https://github.com/stevenjoezhang
+fghrsh https://github.com/fghrsh\n
+  `
+})
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
