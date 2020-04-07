@@ -2,12 +2,12 @@
 
 Kanban Musume Desktop 看板娘桌面版（代码待完善后开源）
 
+![App](https://amorist.oss-cn-shanghai.aliyuncs.com/app/images/3.png "App")
+
 # TODO
 
 - [ ] 新增更多模型
 - [ ] 把模型分离，可单独选择下载
-
-![App](https://amorist.oss-cn-shanghai.aliyuncs.com/app/images/3.png "App")
 
 # Download
 
