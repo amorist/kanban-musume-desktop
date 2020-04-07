@@ -5,8 +5,6 @@ Kanban Musume Desktop 看板娘桌面版（代码待完善后开源）
 
 # Download
 
-[Musume-darwin-x64-1.0.0.zip](https://amorist.oss-cn-shanghai.aliyuncs.com/app/Kanban%20Musume-darwin-x64-1.0.0.zip)
-
 [Kanban Musume.dmg](https://amorist.oss-cn-shanghai.aliyuncs.com/app/Kanban%20Musume.dmg)
 
 # About
