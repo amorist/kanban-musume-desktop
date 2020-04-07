@@ -9,7 +9,7 @@
     "pose": "../general/pose.json",
     "physics": "physics.json",
     "layout": {
-        "center_x":-0.45,
+        "center_x":-0.3,
         "center_y":-0.25,
         "width": 1.6
     },
