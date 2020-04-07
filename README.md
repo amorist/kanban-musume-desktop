@@ -1,6 +1,12 @@
 # kanban-musume-desktop
 Kanban Musume Desktop 看板娘桌面版（代码待完善后开源）
 
+# Download
+
+https://amorist.oss-cn-shanghai.aliyuncs.com/app/Kanban%20Musume-darwin-x64-1.0.0.zip
+
+https://amorist.oss-cn-shanghai.aliyuncs.com/app/Kanban%20Musume.dmg
+
 # About
 
 [网页版本：stevenjoezhang/live2d-widget](https://github.com/stevenjoezhang/live2d-widget)
