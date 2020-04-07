@@ -25,6 +25,7 @@ Kanban Musume Desktop 看板娘桌面版（代码待完善后开源）
 [fghrsh](https://github.com/fghrsh)
 
 ...more
+
 # License
 
 [Released under the GNU General Public License v3](http://www.gnu.org/licenses/gpl-3.0.html)
