@@ -1,7 +1,7 @@
 {
   "name": "kanban-musume",
   "productName": "Kanban Musume",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Kanban Musume",
   "main": ".webpack/main",
   "scripts": {
